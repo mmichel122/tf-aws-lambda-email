@@ -1,7 +1,7 @@
 data "archive_file" "send-email" {
   type        = "zip"
-  output_path = "./send-email.zip"
-  source_dir  = "./code/send_email"
+  output_path = "${path.module}/send-email.zip"
+  source_dir  = "${path.module}/code/send_email"
 }
 
 resource "aws_iam_role" "iam_role_for_lambda" {
