@@ -28,7 +28,7 @@ EOF
 }
 
 resource "aws_lambda_function" "sample_lambda" {
-  filename         = "send-email.zip"
+  filename         = data.archive_file.send-email.output_path
   function_name    = "${var.workspace_team}_send-email-demo"
   role             = aws_iam_role.iam_role_for_lambda.arn
   handler          = "dns_email.lambda_handler"
